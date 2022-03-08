@@ -1,0 +1,58 @@
+
+$primary-color:#FFB400;
+$normal-color:rgba(0, 0, 0, 0.26);
+$disabled-color:rgba(0, 0, 0, 0.26);
+
+.Rating-Component{
+    display: inline-flex;
+}
+.Rating-Component.medium{
+    height: 24px;
+}
+
+.rating-star{
+    position: absolute;
+}
+.rating-star.medium{
+    width: 24px;
+    height: 24px;
+}
+.star-polygon{
+    fill:$normal-color;
+    fill-rule:nonzero;
+}
+.star-wrapper.top{
+    z-index: 10;
+}
+.star-wrapper{
+    overflow: hidden;
+    position: absolute;
+    color: #faaf00;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: inherit;
+    height: inherit;
+    left: 0;
+}
+.star-content.medium{
+    width: 24px;
+    height: 24px;
+}
+.star-content{
+    fill: $normal-color;
+}
+.star-content.fill{
+    fill: $primary-color;
+}
+
+.star-line{
+    display: inline-flex;
+    position: relative;
+}
+.star-item{
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
