@@ -36,6 +36,7 @@ export default function Rating({ disabled = false, label, value = 3.5, size = Ra
     }
 
     const mouseEnterEvent = (index:number)=>{
+        console.log(index);
         changeStarArray(index);
     }
     const mouseLeaveEvent = ()=>{
