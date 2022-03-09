@@ -18,7 +18,7 @@ interface IRatingProps {
     onChange?: (e?: React.MouseEvent) => void;
 }
 
-export default function Rating({ disabled = false, label, value = 4, size = RatingSizeType.Medium, count = 5, onChange }: IRatingProps) {
+export default function Rating({ disabled = false, label, value = 10, size = RatingSizeType.Large, count = 10, onChange }: IRatingProps) {
     const [starsArray,setStarsArray]=useState<number[]>([]);
     const [currentValue,setCurrentValue] = useState<number>(value);
 
@@ -30,6 +30,19 @@ export default function Rating({ disabled = false, label, value = 4, size = Rati
         setCurrentValue(value);
     },[value])
 
+    let classSize:string;
+
+    switch(size){
+        case(RatingSizeType.Medium):
+            classSize = 'medium';
+            break;
+        case(RatingSizeType.Small):
+            classSize = 'small';
+            break;
+        case(RatingSizeType.Large):
+            classSize = 'large';
+            break;
+    }
 
     const changeStarArray = (currValue:number)=>{
         const newStarArr:number[] = [];
@@ -53,10 +66,10 @@ export default function Rating({ disabled = false, label, value = 4, size = Rati
         setCurrentValue(index);
     }
 
-    return <div className='Rating-Component medium'>
-        <div className='star-line'>
+    return <div className={`Rating-Component ${classSize}`}>
+    <div className={`star-line`}>
             {
-                starsArray.map((item,index)=> <Star key={index} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)
+                starsArray.map((item,index)=> <Star key={index} value={item} size={size} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)
             }
         </div>
 
