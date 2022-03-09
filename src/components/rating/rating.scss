@@ -1,7 +1,8 @@
 
 $primary-color:#FFB400;
 $normal-color:rgb(151, 150, 150);
-$disabled-color:rgba(0, 0, 0, 0.26);
+$disabled-color:rgb(192, 192, 192);
+$disabled-primary-color:#ffd779;
 
 .Rating-Component{
     display: inline-flex;
@@ -28,9 +29,11 @@ $disabled-color:rgba(0, 0, 0, 0.26);
     fill: $normal-color;
     transform:150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
 }
+
 .star-wrapper.top-left.fill,.star-wrapper.top-right.fill{
     fill: $primary-color;
 }
+
 
 .star-wrapper{
     overflow: hidden;
@@ -52,6 +55,12 @@ $disabled-color:rgba(0, 0, 0, 0.26);
 }
 .star-content.fill{
     fill: $primary-color;
+}
+.star-content.fill.disabled{
+    fill: $disabled-primary-color;
+}
+.star-content.disabled{
+    fill: $disabled-color;
 }
 
 .star-line{

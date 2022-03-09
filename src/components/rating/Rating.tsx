@@ -15,7 +15,7 @@ interface IRatingProps {
     value?: number,
     size?: RatingSizeType,
     count?: number,
-    onChange?: (e?: React.MouseEvent) => void;
+    onChange?: (currValue?: number) => void;
 }
 
 export default function Rating({ disabled = false, label, value = 4, size = RatingSizeType.Medium, count = 5, onChange }: IRatingProps) {
@@ -51,12 +51,13 @@ export default function Rating({ disabled = false, label, value = 4, size = Rati
     }
     const mouseClickEvent = (index:number)=>{
         setCurrentValue(index);
+        onChange?.(index);
     }
 
     return <div className='Rating-Component medium'>
         <div className='star-line'>
             {
-                starsArray.map((item,index)=> <Star key={index} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)
+                starsArray.map((item,index)=> <Star key={index} disabled={disabled} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)
             }
         </div>
 
