@@ -9,10 +9,11 @@ interface IStarProps{
     index:number,
     mouseEnterEvent:(ind:number) => void,
     mouseLeaveEvent:() => void,
+    mouseClickEvent:(ind:number) => void,
     onChange?: (e?: React.MouseEvent) => void;
 }
 
-export default function Star({ disabled = false, value = 0.5, size = RatingSizeType.Medium,index, onChange,mouseEnterEvent,mouseLeaveEvent }: IStarProps){
+export default function Star({ disabled = false, value = 0.5, size = RatingSizeType.Medium,index, onChange,mouseEnterEvent,mouseLeaveEvent,mouseClickEvent }: IStarProps){
     console.log(index,value);
     const activeLeftClassOptions:string[] = [];
     const activeRightClassOptions:string[] = [];
@@ -39,12 +40,12 @@ export default function Star({ disabled = false, value = 0.5, size = RatingSizeT
 
     return <div className='star-item' onMouseLeave={()=>mouseLeaveEvent()}>
     <div className={'rating-star '+activeLeftClassOptions.join(" ")}>
-        <label className='star-wrapper top-left' onMouseEnter={()=>mouseEnterEvent(index+0.5)} >
+        <label className='star-wrapper top-left' onMouseEnter={()=>mouseEnterEvent(index+0.5)} onClick={()=>mouseClickEvent(index+0.5)} >
             <svg viewBox="0 0 25 30" className={'star-content '+activeLeftClassOptions.join(" ")}>
                 <polygon points={starPoints} />
             </svg>
         </label>
-        <label className='star-wrapper top-right' onMouseEnter={()=>mouseEnterEvent(index+1)}>
+        <label className='star-wrapper top-right' onMouseEnter={()=>mouseEnterEvent(index+1)} onClick={()=>mouseClickEvent(index+1)}>
             <svg viewBox="0 0 25 30" className={'star-content '+activeRightClassOptions.join(" ") }>
                 <polygon points={starPoints} />
                 Sorry, your browser does not support inline SVG.

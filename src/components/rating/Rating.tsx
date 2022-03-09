@@ -18,11 +18,19 @@ interface IRatingProps {
     onChange?: (e?: React.MouseEvent) => void;
 }
 
-export default function Rating({ disabled = false, label, value = 3.5, size = RatingSizeType.Medium, count = 5, onChange }: IRatingProps) {
+export default function Rating({ disabled = false, label, value = 4, size = RatingSizeType.Medium, count = 5, onChange }: IRatingProps) {
     const [starsArray,setStarsArray]=useState<number[]>([]);
+    const [currentValue,setCurrentValue] = useState<number>(value);
+
     useEffect(()=>{
-        changeStarArray(value);
-    },[count,value,disabled]);
+        changeStarArray(currentValue);
+    },[count,disabled,currentValue]);
+
+    useEffect(()=>{
+        setCurrentValue(value);
+    },[value])
+
+
     const changeStarArray = (currValue:number)=>{
         const newStarArr:number[] = [];
         for(let i=1;i<=count;i++){
@@ -36,17 +44,19 @@ export default function Rating({ disabled = false, label, value = 3.5, size = Ra
     }
 
     const mouseEnterEvent = (index:number)=>{
-        console.log(index);
         changeStarArray(index);
     }
     const mouseLeaveEvent = ()=>{
-        changeStarArray(value);
+        changeStarArray(currentValue);
+    }
+    const mouseClickEvent = (index:number)=>{
+        setCurrentValue(index);
     }
 
     return <div className='Rating-Component medium'>
         <div className='star-line'>
             {
-                starsArray.map((item,index)=> <Star key={index} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} />)
+                starsArray.map((item,index)=> <Star key={index} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)
             }
         </div>
 
