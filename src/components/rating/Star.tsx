@@ -13,19 +13,31 @@ interface IStarProps{
     onChange?: (e?: React.MouseEvent) => void;
 }
 
-export default function Star({ disabled = false, value = 0.5, size = RatingSizeType.Medium,index, onChange,mouseEnterEvent,mouseLeaveEvent,mouseClickEvent }: IStarProps){
+
+export default function Star({ disabled = false, value = 0.5, size = RatingSizeType.Medium, index, onChange,mouseEnterEvent,mouseLeaveEvent,mouseClickEvent }: IStarProps){
+    // console.log(index,value);
     const activeLeftClassOptions:string[] = [];
     const activeRightClassOptions:string[] = [];
     const defaultClassOptions:string[] = [];
-    let starPoints:string = "";
-    switch(size){
-        case RatingSizeType.Medium:
-            activeLeftClassOptions.push("medium");
-            activeRightClassOptions.push("medium");
-            defaultClassOptions.push("medium");
-            starPoints = "12.5,1.25 5,24.75 23.75,9.75 1.25,9.75 20,24.75";
-            break;
-    }
+    let starPoints:string = "12.5,1.25 5,24.75 23.75,9.75 1.25,9.75 20,24.75";
+    // switch(size){
+        // case RatingSizeType.Medium:
+        //     activeLeftClassOptions.push("medium");
+        //     activeRightClassOptions.push("medium");
+        //     defaultClassOptions.push("medium");
+        //     break;
+        // case RatingSizeType.Small:
+        //     activeLeftClassOptions.push("small");
+        //     activeRightClassOptions.push("small");
+        //     defaultClassOptions.push("small");
+        //     break;
+        // case RatingSizeType.Large:
+        //     activeLeftClassOptions.push("large");
+        //     activeRightClassOptions.push("large");
+        //     defaultClassOptions.push("large");
+        //     break;
+    // }
+
     switch(value){
         case 0.5:
             activeLeftClassOptions.push("fill");
@@ -35,6 +47,7 @@ export default function Star({ disabled = false, value = 0.5, size = RatingSizeT
             activeRightClassOptions.push("fill");
             break;
     }
+  
     if(disabled){
         activeLeftClassOptions.push("disabled");
         activeRightClassOptions.push("disabled");

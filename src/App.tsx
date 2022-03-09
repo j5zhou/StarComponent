@@ -6,8 +6,7 @@ import Rating from './components/rating/Rating';
 function App() {
   return (
     <div className="App">
-      <Rating onChange={(index)=>console.log(index)}/>
-    </div>
+      <Rating/>
   );
 }
 

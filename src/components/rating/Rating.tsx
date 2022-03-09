@@ -15,6 +15,7 @@ interface IRatingProps {
     value?: number,
     size?: RatingSizeType,
     count?: number,
+
     onChange?: (currValue?: number) => void;
 }
 
@@ -30,6 +31,19 @@ export default function Rating({ disabled = false, label, value = 4, size = Rati
         setCurrentValue(value);
     },[value])
 
+    let classSize:string;
+
+    switch(size){
+        case(RatingSizeType.Medium):
+            classSize = 'medium';
+            break;
+        case(RatingSizeType.Small):
+            classSize = 'small';
+            break;
+        case(RatingSizeType.Large):
+            classSize = 'large';
+            break;
+    }
 
     const changeStarArray = (currValue:number)=>{
         const newStarArr:number[] = [];
@@ -51,10 +65,8 @@ export default function Rating({ disabled = false, label, value = 4, size = Rati
     }
     const mouseClickEvent = (index:number)=>{
         setCurrentValue(index);
-        onChange?.(index);
     }
-
-    return <div className='Rating-Component medium'>
+    return <div className={`Rating-Component ${classSize}`}>
         <div className='star-line'>
             {
                 starsArray.map((item,index)=> <Star key={index} disabled={disabled} value={item} index={index} mouseEnterEvent={mouseEnterEvent} mouseLeaveEvent={mouseLeaveEvent} mouseClickEvent={mouseClickEvent} />)

@@ -7,17 +7,15 @@ $disabled-primary-color:#ffd779;
 .Rating-Component{
     display: inline-flex;
 }
-.Rating-Component.medium{
-    height: 24px;
-}
-
 .rating-star{
     position: absolute;
 }
-.rating-star.medium{
+.rating-star, .star-content{
     width: 24px;
     height: 24px;
 }
+
+
 .star-wrapper.top-left{
     z-index: 13;
     width: 50%;
@@ -34,7 +32,6 @@ $disabled-primary-color:#ffd779;
     fill: $primary-color;
 }
 
-
 .star-wrapper{
     overflow: hidden;
     position: absolute;
@@ -46,22 +43,21 @@ $disabled-primary-color:#ffd779;
     height: inherit;
     left: 0;
 }
-.star-content.medium{
-    width: 24px;
-    height: 24px;
-}
+
 .star-content{
     transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 .star-content.fill{
     fill: $primary-color;
 }
+
 .star-content.fill.disabled{
     fill: $disabled-primary-color;
 }
 .star-content.disabled{
     fill: $disabled-color;
 }
+
 
 .star-line{
     display: inline-flex;
@@ -72,4 +68,17 @@ $disabled-primary-color:#ffd779;
     width: 24px;
     height: 24px;
     position: relative;
+}
+
+.small{
+    transform: scale(0.5);
+}
+
+.medium{
+    transform: scale(1);
+}
+
+.large{
+    transform: scale(2);
+    margin: 24px 0;
 }
