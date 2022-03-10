@@ -55,15 +55,15 @@ export default function Star({ disabled = false, value = 0.5, size = RatingSizeT
     }
 
 
-    return <div className='star-item' onMouseLeave={()=>!disabled && mouseLeaveEvent()}>
+    return <div className='star-item' onMouseLeave={()=>!disabled && mouseLeaveEvent()} data-testid='star'>
     <div className={'rating-star '+activeLeftClassOptions.join(" ")}>
-        <label className='star-wrapper top-left' onMouseEnter={()=>!disabled && mouseEnterEvent(index+0.5)} onClick={()=>!disabled && mouseClickEvent(index+0.5)} >
-            <svg viewBox="0 0 25 30" className={'star-content '+activeLeftClassOptions.join(" ")}>
+        <label  className='star-wrapper top-left' onMouseEnter={()=>!disabled && mouseEnterEvent(index+0.5)} onClick={()=>!disabled && mouseClickEvent(index+0.5)} >
+            <svg viewBox="0 0 25 30" className={'star-content '+activeLeftClassOptions.join(" ")} data-testid='starSVG'>
                 <polygon points={starPoints} />
             </svg>
         </label>
         <label className='star-wrapper top-right' onMouseEnter={()=>!disabled && mouseEnterEvent(index+1)} onClick={()=>!disabled && mouseClickEvent(index+1)}>
-            <svg viewBox="0 0 25 30" className={'star-content '+activeRightClassOptions.join(" ") }>
+            <svg viewBox="0 0 25 30" className={'star-content '+activeRightClassOptions.join(" ") } data-testid='starSVG'>
                 <polygon points={starPoints} />
                 Sorry, your browser does not support inline SVG.
             </svg>
