@@ -70,15 +70,16 @@ $disabled-primary-color:#ffd779;
     position: relative;
 }
 
-.small{
-    transform: scale(0.5);
+.small .star-line *{
+    height: 12px;
+    width: 12px;
 }
 
 .medium{
     transform: scale(1);
 }
 
-.large{
-    transform: scale(2);
-    margin: 24px 0;
+.large .star-line *{
+    height: 48px;
+    width: 48px;
 }

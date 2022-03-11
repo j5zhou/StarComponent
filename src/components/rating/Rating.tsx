@@ -19,7 +19,7 @@ interface IRatingProps {
     onChange?: (currValue?: number) => void;
 }
 
-export function Rating({ disabled = false, label, value = 4, size = RatingSizeType.Large, count = 5, onChange }: IRatingProps) {
+export function Rating({ disabled = false, label, value = 0, size = RatingSizeType.Medium, count = 5, onChange }: IRatingProps) {
     const [starsArray,setStarsArray]=useState<number[]>([]);
     const [currentValue,setCurrentValue] = useState<number>(value);
 
