@@ -41,8 +41,8 @@ export const DiffSizeRating = () => (
         <div className='rating-small'>Small</div>
         <Rating size={RatingSizeType.Small}/>
         <div className='rating-medium' >Medium</div>
-        <Rating />
+        <Rating/>
         <div className='rating-large' >Large</div>
-        <Rating size={RatingSizeType.Large} />
+        <Rating size={RatingSizeType.Large}/>
     </div>
 );

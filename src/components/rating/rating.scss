@@ -15,7 +15,6 @@ $disabled-primary-color:#ffd779;
     height: 24px;
 }
 
-
 .star-wrapper.top-left{
     z-index: 13;
     width: 50%;
@@ -75,6 +74,10 @@ $disabled-primary-color:#ffd779;
     width: 12px;
 }
 
+.small .star-wrapper.top-left{
+    width: 6px;
+}
+
 .medium{
     transform: scale(1);
 }
@@ -82,4 +85,8 @@ $disabled-primary-color:#ffd779;
 .large .star-line *{
     height: 48px;
     width: 48px;
+}
+
+.large .star-wrapper.top-left{
+    width: 24px;
 }
