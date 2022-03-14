@@ -15,7 +15,7 @@ interface IStarProps{
 
 
 export default function Star({ disabled = false, value = 0.5, size = RatingSizeType.Medium, index, onChange,mouseEnterEvent,mouseLeaveEvent,mouseClickEvent }: IStarProps){
-    // console.log(index,value);
+    console.log(index,value);
     const activeLeftClassOptions:string[] = [];
     const activeRightClassOptions:string[] = [];
     const defaultClassOptions:string[] = [];
