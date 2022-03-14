@@ -4,6 +4,11 @@ import {Rating, RatingSizeType} from './Rating';
 export default {
     title: 'Rating',
     component: Rating,
+    argTypes: {
+        size: {
+            option: [RatingSizeType.Small, RatingSizeType.Medium, RatingSizeType.Large]
+        },
+    },
 };
 
 const RatingStyle:React.CSSProperties = {
@@ -11,10 +16,10 @@ const RatingStyle:React.CSSProperties = {
     flexDirection: 'column',
 };
 
-export const defaultRating = () => (
-    <Rating />
+const Template = (args: any) => <Rating {...args} />;
 
-);
+
+export const defaultRating = Template.bind({});
 
 export const DiffInitRatingValue = () => (
     <div style = {RatingStyle}>
